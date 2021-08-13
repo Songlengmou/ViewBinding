@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.anningtex.viewbinding.databinding.ActivityMainBinding;
 
@@ -24,19 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mBinding.getRoot());
 
         mBinding.tvText.setText("跳转OneActivity");
-        mBinding.tvText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, OneActivity.class));
-            }
-        });
+        mBinding.tvText.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, OneActivity.class)));
 
-        mBinding.tvText2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, TwoActivity.class));
-            }
-        });
+        mBinding.tvText2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, TwoActivity.class)));
 
         //获取带有include的布局文件中的内容id
         mBinding.layoutInclude.tvInclude.setText("include里的控件赋值");

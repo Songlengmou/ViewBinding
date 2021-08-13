@@ -40,20 +40,14 @@ public class MyDialog extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        binding.tvShare.setOnClickListener(this);
         binding.tvCancel.setOnClickListener(this);
     }
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_share:
-            case R.id.tv_cancel:
-                dismiss();
-                break;
-            default:
-                break;
+        if (v.getId() == R.id.tv_cancel) {
+            dismiss();
         }
     }
 }

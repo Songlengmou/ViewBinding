@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,19 +24,14 @@ import java.util.List;
  */
 public class TwoActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityTwoBinding twoBinding;
-
-    private OneFragment f1;
-    private TwoFragment f2;
     private FragmentManager fm;
-    private List<Fragment> list = new ArrayList<>();
+    private final List<Fragment> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         twoBinding = ActivityTwoBinding.inflate(getLayoutInflater());
         setContentView(twoBinding.getRoot());
-
         initView();
         initFragment();
     }
@@ -44,8 +40,8 @@ public class TwoActivity extends AppCompatActivity implements View.OnClickListen
         twoBinding.textView1.setOnClickListener(this);
         twoBinding.textView2.setOnClickListener(this);
 
-        f1 = new OneFragment();
-        f2 = new TwoFragment();
+        OneFragment f1 = new OneFragment();
+        TwoFragment f2 = new TwoFragment();
         list.add(f1);
         list.add(f2);
     }
@@ -69,6 +65,7 @@ public class TwoActivity extends AppCompatActivity implements View.OnClickListen
         twoBinding.pager.setCurrentItem(0);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

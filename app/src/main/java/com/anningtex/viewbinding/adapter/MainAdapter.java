@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private List<String> mList;
+    private final List<String> mList;
 
     public MainAdapter(List<String> list) {
         mList = list;
@@ -47,7 +47,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView mTextView;
 
         //之前的写法
